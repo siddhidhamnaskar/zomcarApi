@@ -12,6 +12,9 @@ app.use(authinticator);
 app.use('/insta',route);
 
 const PORT=2024;
+app.get("/",async(req,res)=>{
+    return `<h1>Hello</h1>`;
+})
 app.listen(PORT,()=>{
     try{
         connection();
