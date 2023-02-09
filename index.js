@@ -7,18 +7,19 @@ const authinticator = require('./middlewares/authinticator');
 const app=express();
 
 app.use(express.json());
+
 app.use('/',Route);
 app.use(authinticator);
 app.use('/insta',route);
 
-const PORT=2024;
-app.get("/",async(req,res)=>{
-    res.send(`<h1>Hello</h1>`);
-})
+const PORT=2025;
+// app.get("/",async(req,res)=>{
+//     res.send(`<h1>Hello</h1>`);
+// })
 app.listen(PORT,()=>{
     try{
         connection();
-       console.log("http://localhost:2024");
+       console.log("http://localhost:2025");
 
     }
     catch(err){

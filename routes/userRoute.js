@@ -28,7 +28,7 @@ Route.get("/",async(req,res)=>{
 
 Route.post("/register",async(req,res)=>{
 
-    const {name,email,password,gender}=req.body;
+    const {name,email,password}=req.body;
     try{
        
         bcrypt.hash(password,7,async(err,hash)=>{
@@ -40,7 +40,7 @@ Route.post("/register",async(req,res)=>{
             else
             {
                 
-                const data=new users({name,email,gender,"password":hash});
+                const data=new users({name,email,"password":hash});
                 await data.save();
                 res.send("registration successfull");
 
@@ -79,7 +79,7 @@ Route.post("/login",async(req,res)=>{
         }
 
         // Create JWT token
-    const{name,gender,_id}=user;
+    const{name,_id}=user;
     
     const token= jwt.sign({
         _id, name, email
